@@ -60,23 +60,23 @@ export default function TextForm(props) {
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
                     <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" placeholder='Enter text here' style={{
-                        backgroundColor: props.mode === "dark" ? '#B2BEB5' : "white",
-                        color: props.mode === "dark" ? 'white' : "#333",
+                        backgroundColor: props.mode === "dark" ? 'white' : "white",
+                        color: props.mode === "dark" ? 'black' : "#333",
                         '::placeholder': { color: props.mode === 'dark' ? '#aaa' : '#666' }
                     }}></textarea>
                 </div>
-                <button className="btn btn-primary mx-1" onClick={handleUpClick} >Convert to UpperCase</button>
-                <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to LowerCase</button>
-                <button className="btn btn-danger mx-1" onClick={handleClearClick}>Clear</button>
-                <button className="btn btn-info mx-1" onClick={handleCopyClick}>Copy Text</button>
-                <button className="btn btn-info mx-1" onClick={handleFindEmailClick}>Email Finder</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick} >Convert to UpperCase</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to LowerCase</button>
+                <button className="btn btn-danger mx-1 my-1" onClick={handleClearClick}>Clear</button>
+                <button className="btn btn-info mx-1 my-1" onClick={handleCopyClick}>Copy Text</button>
+                <button className="btn btn-info mx-1 my-1" onClick={handleFindEmailClick}>Email Finder</button>
             </div>
             <div className="container my-5">
                 <h2>Text Summary</h2>
                 {text.trim().length === 0 ? "0" : text.trim().split(/\s+/).length} words and {text.length} characters
                 <p>{text.trim().length === 0 ? "0" : (0.008 * text.trim().split(/\s+/).length).toFixed(2)} minutes read</p>
                 <h2>Preview</h2>
-                <p>{text.length > 0 ? text : "Enter something in the text box to show the preview here"}</p>
+                <p>{text.length > 0 ? text : "Type Something to Preview"}</p>
             </div>
         </>
     )

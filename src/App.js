@@ -19,19 +19,33 @@ function App() {
     }, 1500);
   }
 
-  const toggleMode = () => {
-    if (mode === 'light') {
-      setMode('dark');
-      document.body.style.backgroundColor = '#192734';
-      document.body.style.color = 'white'; 
-      showAlert("dark Mode enabled","success");
-    } else {
+  const toggleMode = (cls) => {
+    if (cls) {
+      removeBodyClasses();
+      document.body.classList.add('bg-' + cls);
       setMode('light');
-      document.body.style.backgroundColor = 'white'; 
       document.body.style.color = 'black';
-      showAlert("light Mode enabled","primary");
+      showAlert(`${cls} mode enabled`, "success");
+    } else {
+      removeBodyClasses();
+      if (mode === 'light') {
+        setMode('dark');
+        document.body.style.backgroundColor = '#192734';
+        document.body.style.color = 'white';
+        showAlert("Dark mode enabled", "success");
+      } else {
+        setMode('light');
+        document.body.style.backgroundColor = 'white';
+        document.body.style.color = 'black';
+        showAlert("Light mode enabled", "primary");
+      }
     }
   };
+  const removeBodyClasses = () => {
+    document.body.classList.remove('bg-primary', 'bg-danger', 'bg-warning', 'bg-success');
+  };
+  
+  
 
   return (
     <>
@@ -41,7 +55,7 @@ function App() {
       <div className="container my-3">
         <Routes>
           <Route path="/" element={<TextForm heading="Enter the text to analyze below" showAlert={showAlert} mode={mode}/>} />
-          <Route path="/about" element={<About/>} />
+          <Route path="/about" element={<About  mode={mode}/>} />
           
         </Routes>
       </div>

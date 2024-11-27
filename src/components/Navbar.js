@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'; // Import Link for navigation.
+import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
   return (
@@ -19,16 +19,22 @@ export default function Navbar(props) {
               <Link className="nav-link" to="/about">{props.aboutTitle}</Link>
             </li>
           </ul>
+          <div className="d-flex">
+            <div className="bg-primary rounded mx-2 my-2" onClick={()=>props.toggleMode('primary')} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+            <div className="bg-danger rounded mx-2 my-2" onClick={()=>props.toggleMode('danger')} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+            <div className="bg-warning rounded mx-2 my-2" onClick={()=>props.toggleMode('warning')} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+            <div className="bg-success rounded mx-2 my-2" onClick={()=>props.toggleMode('success')} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
+          </div>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-danger" type="submit">Search</button>
+            <button className={`btn btn-${props.mode === 'dark' ? 'warning' : 'dark'}`} type="submit">Search</button>
           </form>
           <div className="form-check form-switch ms-3">
             <input 
               className="form-check-input" 
               type="checkbox" 
               id="darkModeSwitch" 
-              onChange={props.toggleMode} 
+              onChange={()=>props.toggleMode(null)} 
               checked={props.mode === 'dark'}
             />
           </div>
