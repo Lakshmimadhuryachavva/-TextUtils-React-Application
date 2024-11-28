@@ -3,7 +3,7 @@
 TextUtils is a web application that allows users to analyze and manipulate text. The app includes features such as transforming text case, removing extra spaces, and more. It also offers a dark mode and light mode for a better user experience.
 
 # **You can view this Application here **
-  `<a href='https://textutilsmanagement.netlify.app/'>Click here</a>`
+  <a href='https://textutilsmanagement.netlify.app/'>Click here</a>
 
 ## **Features**
 
