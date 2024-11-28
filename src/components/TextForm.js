@@ -65,8 +65,8 @@ export default function TextForm(props) {
                         '::placeholder': { color: props.mode === 'dark' ? '#aaa' : '#666' }
                     }}></textarea>
                 </div>
-                <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick} >Convert to UpperCase</button>
-                <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to LowerCase</button>
+                <button className="btn mx-1 my-1" style={{backgroundColor:'#FF00FF',color:'white'}} onClick={handleUpClick} >Convert to UpperCase</button>
+                <button className="btn mx-1 my-1" style={{backgroundColor:'#FF00FF',color:'white'}} onClick={handleLoClick}>Convert to LowerCase</button>
                 <button className="btn btn-danger mx-1 my-1" onClick={handleClearClick}>Clear</button>
                 <button className="btn btn-info mx-1 my-1" onClick={handleCopyClick}>Copy Text</button>
                 <button className="btn btn-info mx-1 my-1" onClick={handleFindEmailClick}>Email Finder</button>
